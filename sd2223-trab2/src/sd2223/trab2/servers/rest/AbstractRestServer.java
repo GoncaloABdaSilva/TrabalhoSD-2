@@ -21,12 +21,15 @@ public abstract class AbstractRestServer extends AbstractServer {
 		super(log, service, String.format(SERVER_BASE_URI, IP.hostName(), port, REST_CTX));
 	}
 
-	protected void start() throws NoSuchAlgorithmException {
-		ResourceConfig config = new ResourceConfig();
+	protected void start() {
+		try {
+			ResourceConfig config = new ResourceConfig();
+			registerResources( config );
 
-		registerResources( config );
-
-		JdkHttpServerFactory.createHttpServer( URI.create(serverURI.replace(IP.hostName(), INETADDR_ANY)), config, SSLContext.getDefault());
+			JdkHttpServerFactory.createHttpServer( URI.create(serverURI.replace(IP.hostName(), INETADDR_ANY)), config, SSLContext.getDefault());
+		} catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
 
 		Discovery.getInstance().announce(service, super.serverURI);
 		Log.info(String.format("%s Server ready @ %s\n",  service, serverURI));
