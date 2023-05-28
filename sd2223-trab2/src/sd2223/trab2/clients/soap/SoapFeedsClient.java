@@ -20,6 +20,11 @@ public class SoapFeedsClient<T extends FeedsService> extends SoapClient implemen
 		super( serverURI );
 	}
 
+	@Override
+	public Result<Void> verifyPassword(String name, String pwd) {
+		return null;
+	}
+
 	private FeedsService stub;
 	synchronized protected FeedsService stub() {
 		if (stub == null) {

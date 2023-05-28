@@ -47,4 +47,9 @@ public class SoapUsersWebService extends SoapWebService<UsersException> implemen
 		return super.fromJavaResult( impl.searchUsers(pattern));
 	}
 
+	@Override
+	public void verifyPassword(String name, String pwd) throws UsersException {
+
+	}
+
 }

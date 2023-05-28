@@ -97,7 +97,9 @@ abstract public class SoapClient {
 		}
 	}
 
-	protected static interface ResultSupplier<T> {
+    public abstract Result<Void> verifyPassword(String name, String pwd);
+
+    protected static interface ResultSupplier<T> {
 		T get() throws Exception;
 	}
 
