@@ -108,6 +108,15 @@ public class JavaUsers implements Users {
 		return ok(hits);
 	}
 
+	@Override
+	public Result<Void> verifyPassword(String name, String pwd) {
+		var res = getUser(name, pwd);
+		if( res.isOK() )
+			return Result.ok();
+		else
+			return Result.error( res.error() );
+	}
+
 	private boolean badParam( String str ) {
 		return str == null;
 	}

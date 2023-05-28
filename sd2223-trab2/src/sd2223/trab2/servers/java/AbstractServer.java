@@ -19,7 +19,7 @@ public abstract class AbstractServer {
 		this.service = Domain.get() + ":" + service;
 	}
 		
-	abstract protected void start();
+	abstract protected void start() throws Exception;
 	
 	static {
 		System.setProperty("java.net.preferIPv4Stack", "true");

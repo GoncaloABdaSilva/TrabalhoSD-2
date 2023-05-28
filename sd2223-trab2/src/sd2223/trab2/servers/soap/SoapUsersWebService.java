@@ -49,7 +49,7 @@ public class SoapUsersWebService extends SoapWebService<UsersException> implemen
 
 	@Override
 	public void verifyPassword(String name, String pwd) throws UsersException {
-
+		super.fromJavaResult( impl.verifyPassword(name, pwd));
 	}
 
 }

@@ -43,7 +43,14 @@ public class RestUsersClient extends RestClient implements Users {
 		return super.toJavaResult(r, String.class);
 	}
 
-	
+	private Result<Void> clt_verifyPassword(String name, String pwd) {
+		Response r = target.path( name ).path(UsersService.PWD)
+				.queryParam(UsersService.PWD, pwd).request()
+				.get();
+
+		return super.toJavaResult(r, Void.class);
+	}
+
 	@Override
 	public Result<User> getUser(String name, String pwd) {
 		return super.reTry(() -> clt_getUser(name, pwd));
@@ -67,6 +74,11 @@ public class RestUsersClient extends RestClient implements Users {
 	@Override
 	public Result<List<User>> searchUsers(String pattern) {
 		return error(NOT_IMPLEMENTED);
+	}
+
+	@Override
+	public Result<Void> verifyPassword(String name, String pwd) {
+		return super.reTry(() -> clt_verifyPassword(name, pwd));
 	}
 
 }
