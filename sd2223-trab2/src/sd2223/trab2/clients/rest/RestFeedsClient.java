@@ -5,8 +5,10 @@ import static sd2223.trab2.api.java.Result.ErrorCode.NOT_IMPLEMENTED;
 
 import java.util.List;
 
+import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import sd2223.trab2.api.Message;
 import sd2223.trab2.api.java.Feeds;
@@ -23,7 +25,7 @@ public class RestFeedsClient extends RestClient implements Feeds {
 		super( serverURI );
 		target = client.target( serverURI ).path( FeedsService.PATH );
 	}
-	
+
 	@Override
 	public Result<Void> deleteUserFeed(String user) {
 		return super.reTry(() -> clt_deleteUserFeed(user));
@@ -41,30 +43,25 @@ public class RestFeedsClient extends RestClient implements Feeds {
 
 	@Override
 	public Result<Long> postMessage(String user, String pwd, Message msg) {
-		return error( NOT_IMPLEMENTED );
+		return super.reTry(() -> ctl_postMessage(user, pwd, msg));
 	}
-
 	@Override
 	public Result<Void> removeFromPersonalFeed(String user, long mid, String pwd) {
-		return error( NOT_IMPLEMENTED );
+		return super.reTry(() -> ctl_removeFromPersonalFeed(user, mid, pwd));
 	}
-
 	@Override
 	public Result<Void> subUser(String user, String userSub, String pwd) {
-		return error( NOT_IMPLEMENTED );
+		return super.reTry(() -> ctl_subUser(user, userSub, pwd));
 	}
-
 	@Override
 	public Result<Void> unsubscribeUser(String user, String userSub, String pwd) {
-		return error( NOT_IMPLEMENTED );
+		return super.reTry(() -> ctl_unsubscribeUser(user, userSub, pwd));
 	}
-
 	@Override
 	public Result<List<String>> listSubs(String user) {
-		return error( NOT_IMPLEMENTED );
+		return super.reTry(() -> ctl_listSubs(user));
 	}
 
-		
 	private Result<Message> clt_getMessage(String user, long mid) {
 		Response r = target.path(user).path( Long.toString(mid) )
 				.request()
@@ -88,5 +85,55 @@ public class RestFeedsClient extends RestClient implements Feeds {
 				.delete();
 
 		return super.toJavaResult(r, Void.class);
+	}
+
+	private Result<Long> ctl_postMessage(String user, String pwd, Message msg) {
+
+		Response r = target.path(user)
+				.queryParam(FeedsService.PWD, pwd).request()
+				.accept(MediaType.APPLICATION_JSON)
+				.post(Entity.entity(msg, MediaType.APPLICATION_JSON));
+
+		return super.toJavaResult(r, Long.class);
+	}
+
+	private Result<Void> ctl_removeFromPersonalFeed(String user, long mid, String pwd) {
+
+		Response r = target.path(user)
+				.path(String.valueOf(mid))
+				.queryParam(FeedsService.PWD, pwd)
+				.request()
+				.delete();
+
+		return super.toJavaResult(r, Void.class);
+	}
+
+	private Result<Void> ctl_subUser(String user, String userSub, String pwd) {
+
+		Response r = target.path(user)
+				.path(userSub)
+				.queryParam(FeedsService.PWD, pwd).request()
+				.post(Entity.entity(userSub, MediaType.APPLICATION_JSON));
+
+		return super.toJavaResult(r, Void.class);
+	}
+
+	private Result<Void> ctl_unsubscribeUser(String user, String userSub, String pwd) {
+
+		Response r = target.path(user)
+				.path(userSub)
+				.queryParam(FeedsService.PWD, pwd).request()
+				.delete();
+
+		return super.toJavaResult(r, Void.class);
+	}
+
+	private Result<List<String>> ctl_listSubs(String user) {
+
+		Response r = target.path(user).request()
+				.accept(MediaType.APPLICATION_JSON)
+				.get();
+
+		return super.toJavaResult(r, (Class<List<String>>) (Object) List.class);
 	}
 }

@@ -13,28 +13,33 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Logger;
 
 import sd2223.trab2.api.User;
 import sd2223.trab2.api.java.Result;
 import sd2223.trab2.api.java.Users;
 import sd2223.trab2.servers.Domain;
+import sd2223.trab2.servers.soap.SoapUsersServer;
 
 
 public class JavaUsers implements Users {
 	final protected Map<String, User> users = new ConcurrentHashMap<>();
 	final ExecutorService executor = Executors.newCachedThreadPool();
-	
+
+	private static Logger Log = Logger.getLogger(JavaUsers.class.getName());
+
 	@Override
 	public Result<String> createUser(User user) {
 		if( user.hasNullFields())
 			return error( BAD_REQUEST );
-		
+
 		var res = users.putIfAbsent(user.getName(), user);
+
 		if (res != null)
 			return error(CONFLICT);
-		
+
 		user.setDomain( Domain.get() );
-		
+
 		return ok(user.getName() + "@" + Domain.get());
 	}
 

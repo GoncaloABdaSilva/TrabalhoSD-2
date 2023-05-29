@@ -43,6 +43,28 @@ public class RestUsersClient extends RestClient implements Users {
 		return super.toJavaResult(r, String.class);
 	}
 
+	public Result<User> clt_updateUser(String name, String pwd, User user){
+		Response r = target.path(name).queryParam(UsersService.PWD, pwd)
+				.request().accept(MediaType.APPLICATION_JSON)
+				.put(Entity.entity(user, MediaType.APPLICATION_JSON));
+
+		return super.toJavaResult(r, User.class);
+	}
+
+	public Result<User> clt_deleteUser(String name, String pwd){
+		Response r = target.path(name).queryParam(UsersService.PWD, pwd)
+				.request().accept(MediaType.APPLICATION_JSON).delete();
+
+		return super.toJavaResult(r, User.class);
+	}
+
+	public Result<List<User>> clt_searchUsers(String pattern){
+		Response r = target.path("/").queryParam(UsersService.QUERY, pattern)
+				.request().accept(MediaType.APPLICATION_JSON).get();
+
+		return super.toJavaResult(r, (Class<List<User>>)(Object)List.class );
+	}
+
 	private Result<Void> clt_verifyPassword(String name, String pwd) {
 		Response r = target.path( name ).path(UsersService.PWD)
 				.queryParam(UsersService.PWD, pwd).request()
@@ -55,25 +77,25 @@ public class RestUsersClient extends RestClient implements Users {
 	public Result<User> getUser(String name, String pwd) {
 		return super.reTry(() -> clt_getUser(name, pwd));
 	}
-	
+
 	@Override
 	public Result<String> createUser(User user) {
-		return error(NOT_IMPLEMENTED);
+		return super.reTry(() -> clt_createUser(user));
 	}
-	
+
 	@Override
 	public Result<User> updateUser(String userId, String password, User user) {
-		return error(NOT_IMPLEMENTED);
+		return super.reTry(() -> clt_updateUser(userId, password, user));
 	}
 
 	@Override
 	public Result<User> deleteUser(String userId, String password) {
-		return error(NOT_IMPLEMENTED);
+		return super.reTry(() -> clt_deleteUser(userId, password));
 	}
 
 	@Override
 	public Result<List<User>> searchUsers(String pattern) {
-		return error(NOT_IMPLEMENTED);
+		return super.reTry(() -> clt_searchUsers(pattern));
 	}
 
 	@Override

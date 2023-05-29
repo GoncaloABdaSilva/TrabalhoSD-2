@@ -30,34 +30,34 @@ public class SoapUsersClient extends SoapClient implements Users {
 		}
 		return stub;
 	}
-	
+
+	@Override
+	public Result<String> createUser(User user) {
+		return super.reTry( () -> super.toJavaResult( () -> stub().createUser(user) ) );
+	}
+
 	@Override
 	public Result<User> getUser(String name, String pwd) {
 		return super.reTry( () -> super.toJavaResult( () -> stub().getUser(name, pwd) ) );
 	}
 
 	@Override
-	public Result<String> createUser(User user) {
-		return super.reTry( () -> super.toJavaResult( () -> stub().createUser(user)) );
+	public Result<User> updateUser(String name, String pwd, User user) {
+		return super.reTry( () -> super.toJavaResult( () -> stub().updateUser(name, pwd, user)) );
+	}
+
+	@Override
+	public Result<User> deleteUser(String name, String pwd) {
+		return super.reTry( () -> super.toJavaResult( () -> stub().deleteUser(name, pwd)) );
+	}
+
+	@Override
+	public Result<List<User>> searchUsers(String pattern) {
+		return super.reTry( () -> super.toJavaResult( () -> stub().searchUsers(pattern)) );
 	}
 
 	@Override
 	public Result<Void> verifyPassword(String name, String pwd) {
 		return super.reTry( () -> super.toJavaResult( () -> stub().verifyPassword(name, pwd) ) );
-	}
-		
-	@Override
-	public Result<User> updateUser(String name, String pwd, User user) {
-		return error( NOT_IMPLEMENTED );
-	}
-
-	@Override
-	public Result<User> deleteUser(String name, String pwd) {
-		return error( NOT_IMPLEMENTED );
-	}
-
-	@Override
-	public Result<List<User>> searchUsers(String pattern) {
-		return error( NOT_IMPLEMENTED );
 	}
 }
