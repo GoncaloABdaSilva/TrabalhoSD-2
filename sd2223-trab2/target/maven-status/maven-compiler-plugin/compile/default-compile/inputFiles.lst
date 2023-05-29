@@ -43,6 +43,7 @@ C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\rest\RestFeedsPushResource.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\clients\ClientFactory.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\soap\FeedsService.java
+C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\rest\RestFeedsServerProxy.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\soap\SoapFeedsPushWebService.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\clients\soap\SoapFeedsClient.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\rest\AbstractRestServer.java
@@ -64,5 +65,6 @@ C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\java\Use
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\rest\FeedsServicePull.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\rest\RestFeedsResource.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\clients\rest\RestClient.java
+C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\rest\RestFeedsResourceProxy.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\clients\soap\SoapUsersClient.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\rest\UsersService.java

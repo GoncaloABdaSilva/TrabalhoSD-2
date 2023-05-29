@@ -1,4 +1,6 @@
 sd2223\trab2\clients\ClientFactory$1.class
+sd2223\trab2\servers\rest\RestFeedsResourceProxy.class
+sd2223\trab2\servers\rest\RestFeedsServerProxy.class
 utils\Sleep.class
 sd2223\trab2\clients\rest\RestFeedsPushClient.class
 sd2223\trab2\mastodon\msgs\MastodonAccount.class

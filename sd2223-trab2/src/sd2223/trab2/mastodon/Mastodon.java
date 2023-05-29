@@ -27,9 +27,9 @@ public class Mastodon implements Feeds {
 	
 	static String MASTODON_SERVER_URI = MASTODON_NOVA_SERVER_URI;
 	
-	private static final String clientKey = "<create your own>";
-	private static final String clientSecret = "<create your own>";
-	private static final String accessTokenStr = "<create your own>";
+	private static final String clientKey = "K4KNbXfYD6qCbx5DAhcLL_YMMIRu_QWw5Puv4FANVyU ";
+	private static final String clientSecret = "zLVdcSc52m9ouB6RMV1B8MAch7RJdOqDedzGyapcHYc";
+	private static final String accessTokenStr = "2xMyoVE7omad1Y7koMzAWI889t32iGUkpn1sGA_gbDg";
 
 	static final String STATUSES_PATH= "/api/v1/statuses";
 	static final String TIMELINES_PATH = "/api/v1/timelines/home";
@@ -109,16 +109,44 @@ public class Mastodon implements Feeds {
 		}
 		return error(Result.ErrorCode.INTERNAL_ERROR);
 	}
-
 	
 	@Override
 	public Result<Void> removeFromPersonalFeed(String user, long mid, String pwd) {
-		return error(NOT_IMPLEMENTED);
+		try {
+			final OAuthRequest request = new OAuthRequest(Verb.DELETE, getEndpoint(STATUSES_PATH + "/%d", mid));
+
+			service.signRequest(accessToken, request);
+			Response response = service.execute(request);
+
+			if (response.getCode() == HTTP_OK) {
+					return ok();
+			}
+
+			if (response.getCode() == 404) {
+				return error(NOT_FOUND);
+			}
+		} catch (Exception x) {
+			x.printStackTrace();
+		}
+		return error(INTERNAL_ERROR);
 	}
 
 	@Override
 	public Result<Message> getMessage(String user, long mid) {
-		return error(NOT_IMPLEMENTED);
+		try {
+			final OAuthRequest request = new OAuthRequest(Verb.GET, getEndpoint(TIMELINES_PATH));
+
+			service.signRequest(accessToken, request);
+
+			Response response = service.execute(request);
+
+			if (response.getCode() == HTTP_OK) {
+
+			}
+		} catch (Exception x) {
+			x.printStackTrace();
+		}
+		return error(Result.ErrorCode.INTERNAL_ERROR);
 	}
 
 	@Override
@@ -137,5 +165,7 @@ public class Mastodon implements Feeds {
 	}
 
 	@Override
-	public Result<Void> deleteUserFeed(String user) { return error(NOT_IMPLEMENTED);	}
+	public Result<Void> deleteUserFeed(String user) {
+		return error(NOT_IMPLEMENTED);
+	}
 }

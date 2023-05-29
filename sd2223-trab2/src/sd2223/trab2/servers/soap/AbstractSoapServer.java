@@ -42,6 +42,8 @@ public class AbstractSoapServer<T> extends AbstractServer {
 		var endpoint = Endpoint.create(webservice);
 		endpoint.publish(server.createContext("/soap"));
 
+		Log.info(service + "-----" + serverURI + "!!!!!!!!");
+
 		server.start();
 
 		Discovery.getInstance().announce(service, serverURI);
