@@ -170,6 +170,25 @@ public class Mastodon implements Feeds {
 	@Override
 	public Result<Void> subUser(String user, String userSub, String pwd) {
 		try {
+			final OAuthRequest request = new OAuthRequest(Verb.GET, getEndpoint(SEARCH_ACCOUNTS_PATH) + "?q=" + userSub);
+
+			service.signRequest(accessToken, request);
+			Response response = service.execute(request);
+
+			if (response.getCode() == HTTP_OK) {
+				final OAuthRequest request2 = new OAuthRequest(Verb.POST, getEndpoint(String.format(ACCOUNT_FOLLOW_PATH, userSub)));
+
+				service.signRequest(accessToken, request2);
+				response = service.execute(request2);
+
+				if (response.getCode() == HTTP_OK){
+					return ok();
+				}
+			}
+
+			if (response.getCode() == 404) {
+				return error(NOT_FOUND);
+			}
 
 		} catch (Exception x) {
 			x.printStackTrace();
