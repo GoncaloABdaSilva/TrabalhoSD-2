@@ -2,14 +2,15 @@ package sd2223.trab2.mastodon.msgs;
 
 import sd2223.trab2.api.Message;
 
+import java.time.OffsetDateTime;
+
 public record PostStatusResult(String id, String content, String created_at, MastodonAccount account) {
 	
 	public long getId() {
 		return Long.valueOf(id);
 	}
-	
 	long getCreationTime() {
-		return 0;
+		return OffsetDateTime.parse(created_at).toInstant().toEpochMilli();
 	}
 	
 	public String getText() {

@@ -13,7 +13,6 @@ public class RestFeedsServerProxy extends AbstractRestServer{
 
     private static Logger Log = Logger.getLogger(RestFeedsServerProxy.class.getName());
 
-
     RestFeedsServerProxy() {
         super( Log, Feeds.SERVICENAME, PORT);
     }
@@ -28,6 +27,4 @@ public class RestFeedsServerProxy extends AbstractRestServer{
         Domain.set( args[0], Long.valueOf(args[1]));
         new RestFeedsServerProxy().start();
     }
-
-
 }
