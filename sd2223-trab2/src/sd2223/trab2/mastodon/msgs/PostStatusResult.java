@@ -5,6 +5,7 @@ import sd2223.trab2.servers.Domain;
 
 import java.time.OffsetDateTime;
 
+
 public record PostStatusResult(String id, String content, String created_at, MastodonAccount account) {
 	
 	public long getId() {
