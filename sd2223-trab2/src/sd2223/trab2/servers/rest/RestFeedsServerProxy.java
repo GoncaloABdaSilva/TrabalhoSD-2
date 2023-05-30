@@ -2,7 +2,6 @@ package sd2223.trab2.servers.rest;
 
 import org.glassfish.jersey.server.ResourceConfig;
 import sd2223.trab2.api.java.Feeds;
-import sd2223.trab2.mastodon.Mastodon;
 import sd2223.trab2.servers.Domain;
 import utils.Args;
 

@@ -15,6 +15,7 @@ import com.github.scribejava.core.oauth.OAuth20Service;
 import com.google.gson.reflect.TypeToken;
 import utils.JSON;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static sd2223.trab2.api.java.Result.ErrorCode.*;
@@ -101,7 +102,15 @@ public class Mastodon implements Feeds {
 			if (response.getCode() == HTTP_OK) {
 				List<PostStatusResult> res = JSON.decode(response.getBody(), new TypeToken<List<PostStatusResult>>() {});
 
-				return ok(res.stream().map(PostStatusResult::toMessage).toList());
+				List<Message> list = res.stream().map(PostStatusResult::toMessage).toList();
+				List<Message> toReturn = new ArrayList<>();
+
+				for (Message msg: list){
+					if (msg.getCreationTime() > time)
+						toReturn.add(msg);
+				}
+
+				return ok(toReturn);
 			}
 		} catch (Exception x) {
 			x.printStackTrace();
@@ -200,18 +209,6 @@ public class Mastodon implements Feeds {
 
 	@Override
 	public Result<Void> deleteUserFeed(String user) {
-		try {
-			final OAuthRequest request = new OAuthRequest(Verb.DELETE, getEndpoint("/api/v1/accounts/%s", user));
-
-			service.signRequest(accessToken, request);
-			Response response = service.execute(request);
-
-			if (response.getCode() == HTTP_OK) {
-				return ok();
-			}
-		} catch (Exception x) {
-			x.printStackTrace();
-		}
-		return error(INTERNAL_ERROR);
+		return error(NOT_IMPLEMENTED);
 	}
 }

@@ -1,6 +1,7 @@
 package sd2223.trab2.mastodon.msgs;
 
 import sd2223.trab2.api.Message;
+import sd2223.trab2.servers.Domain;
 
 import java.time.OffsetDateTime;
 
@@ -14,11 +15,11 @@ public record PostStatusResult(String id, String content, String created_at, Mas
 	}
 	
 	public String getText() {
-		return content;
+		return content.substring(3, content.length() - 4);
 	}
 	
 	public Message toMessage() {
-		var m = new Message( getId(), "todo", "todo", getText());
+		var m = new Message( getId(), account.username(), Domain.get(), getText());
 		m.setCreationTime( getCreationTime() );
 		return m;
 	}

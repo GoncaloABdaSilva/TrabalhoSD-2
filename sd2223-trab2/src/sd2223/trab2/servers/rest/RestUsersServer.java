@@ -20,11 +20,11 @@ public class RestUsersServer extends AbstractRestServer {
 	
 	@Override
 	void registerResources(ResourceConfig config) {
-		config.register( RestUsersResource.class ); 
+		config.register( RestUsersResource.class );
 //		config.register(new GenericExceptionMapper());
 //		config.register(new CustomLoggingFilter());
 	}
-	
+
 	
 	public static void main(String[] args) throws Exception {
 		Domain.set( args[0], Long.valueOf(args[1]));
