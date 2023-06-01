@@ -43,6 +43,7 @@ public class Mastodon implements Feeds {
 	static final String ACCOUNT_UNFOLLOW_PATH = "/api/v1/accounts/%s/unfollow";
 	
 	private static final int HTTP_OK = 200;
+	private static final int HTTP_NOT_FOUND = 404;
 
 	protected OAuth20Service service;
 	protected OAuth2AccessToken accessToken;
@@ -131,7 +132,7 @@ public class Mastodon implements Feeds {
 					return ok();
 			}
 
-			if (response.getCode() == 404) {
+			if (response.getCode() == HTTP_NOT_FOUND) {
 				return error(NOT_FOUND);
 			}
 		} catch (Exception x) {
@@ -158,7 +159,7 @@ public class Mastodon implements Feeds {
 				else {
 					return error(INTERNAL_ERROR);
 				}
-			} else if (response.getCode() == 404) {
+			} else if (response.getCode() == HTTP_NOT_FOUND) {
 				return error(NOT_FOUND);
 			}
 
@@ -194,7 +195,7 @@ public class Mastodon implements Feeds {
 				}
 			}
 
-			if (response.getCode() == 404) {
+			if (response.getCode() == HTTP_NOT_FOUND) {
 				return error(NOT_FOUND);
 			}
 
@@ -226,7 +227,7 @@ public class Mastodon implements Feeds {
 				}
 			}
 
-			if (response.getCode() == 404) {
+			if (response.getCode() == HTTP_NOT_FOUND) {
 				return error(NOT_FOUND);
 			}
 

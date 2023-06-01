@@ -1,6 +1,5 @@
 package sd2223.trab2.servers.soap;
 
-import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
 import java.util.logging.Logger;

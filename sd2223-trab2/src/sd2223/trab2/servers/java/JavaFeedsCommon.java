@@ -126,10 +126,10 @@ public abstract class JavaFeedsCommon<T extends Feeds>  implements Feeds {
 			return ok(new ArrayList<>(ufi.following()));
 		}
 	}
-	
+
 	@Override
 	public Result<Void> deleteUserFeed(String user) {
-		
+
 		var preconditionsResult = preconditions.deleteUserFeed(user);
 		if( ! preconditionsResult.isOK() )
 			return preconditionsResult;
@@ -145,7 +145,6 @@ public abstract class JavaFeedsCommon<T extends Feeds>  implements Feeds {
 		}
 		return ok();
 	}
-	
 	
 	static public record FeedUser(String user, String name, String pwd, String domain) {
 		private static final String EMPTY_PASSWORD = "";

@@ -1,10 +1,12 @@
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\clients\rest\RestUsersClient.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\rest\RestResource.java
+C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\kafka\KafkaPublisher.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\java\JavaFeedsPushPreconditions.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\tls\InsecureHostnameVerifier.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\java\Feeds.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\clients\rest\RestFeedsPullClient.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\clients\rest\RestFeedsClient.java
+C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\rest\RestFeedsResourceReplication.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\soap\SoapUsersWebService.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\soap\SoapWebService.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\Message.java
@@ -13,6 +15,7 @@ C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\rest
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\discovery\Discovery.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\java\JavaFeedsPreconditions.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\java\FeedsPull.java
+C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\kafka\KafkaSubscriber.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\rest\CustomLoggingFilter.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\soap\pull\FeedsService.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\mastodon\Mastodon.java
@@ -21,6 +24,7 @@ C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\Doma
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\soap\SoapFeedsWebService.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\mastodon\msgs\PostStatusResult.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\java\FeedsPush.java
+C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\kafka\KafkaUtils.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\soap\SoapFeedsServer.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\mastodon\MastodonApi.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\utils\JSON.java
@@ -36,6 +40,7 @@ C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\soap\Use
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\rest\GenericExceptionMapper.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\java\JavaFeedsPush.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\soap\UsersService.java
+C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\kafka\sync\SyncPoint.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\clients\rest\RestFeedsPushClient.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\mastodon\msgs\PostStatusArgs.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\clients\soap\SoapFeedsPullClient.java
@@ -45,6 +50,7 @@ C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\clients\Clie
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\soap\FeedsService.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\rest\RestFeedsServerProxy.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\soap\SoapFeedsPushWebService.java
+C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\rest\RestFeedsServerReplication.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\clients\soap\SoapFeedsClient.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\rest\AbstractRestServer.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\soap\SoapUsersServer.java
@@ -59,6 +65,7 @@ C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\rest\Fee
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\servers\java\JavaUsers.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\utils\IP.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\utils\Sleep.java
+C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\kafka\RecordProcessor.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\java\Result.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\soap\push\FeedsService.java
 C:\Users\HP\IdeaProjects\TrabalhoSD-2\sd2223-trab2\src\sd2223\trab2\api\java\Users.java
